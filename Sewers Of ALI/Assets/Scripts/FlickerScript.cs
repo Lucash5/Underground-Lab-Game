@@ -7,6 +7,7 @@ public class FlickerScript : MonoBehaviour
     int num;
     public Light light;
     public MeshRenderer mesh;
+    public AudioSource AS;
     bool initiated;
     void Start()
     {
@@ -27,9 +28,11 @@ public class FlickerScript : MonoBehaviour
     {
         light.enabled = false;
         mesh.enabled = false;
-        yield return new WaitForSeconds(0.06f);
+        AS.enabled = false;
+        yield return new WaitForSeconds(0.1f);
         light.enabled = true;
         mesh.enabled = true;
+        AS.enabled = true;
         yield return new WaitForSeconds(num);
         initiated = false;
     }
